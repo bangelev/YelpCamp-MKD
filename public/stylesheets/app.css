@@ -15,6 +15,13 @@
     overflow: hidden;
 }
 
+.custom {
+    object-fit: fill;
+    object-position: center;
+    height: 50vh;
+    overflow: hidden;
+}
+
 #formFile {
     display: flex;
 }

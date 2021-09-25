@@ -5,8 +5,8 @@ mapboxgl.accessToken = mapToken
 const map = new mapboxgl.Map({
         container: 'cluster-map',
         style: 'mapbox://styles/mapbox/light-v10',
-        center: [-103.5917, 40.6699],
-        zoom: 3,
+        center: [21.784795, 41.719951],
+        zoom: 6,
     })
     // console.log(campgrounds)
 map.on('load', () => {
