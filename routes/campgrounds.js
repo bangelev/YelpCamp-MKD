@@ -22,10 +22,6 @@ router
         validateCampground,
         catchAsync(campgrounds.createCampground)
     )
-    // .post(upload.array('image'), (req, res) => {
-    //     console.log(req.body, req.files)
-    //     res.send('It worked!?')
-    // })
 
 router.get('/new', isLogedIn, campgrounds.renderNewForm)
 
@@ -40,22 +36,12 @@ router
         catchAsync(campgrounds.updateCampground)
     )
     .delete(isLogedIn, isAuthor, catchAsync(campgrounds.deleteCampground))
-    // show page
 
-// create new campground
-
-// deatils
-
-// edit route
 router.get(
     '/:id/edit',
     isLogedIn,
     isAuthor,
     catchAsync(campgrounds.renderEditForm)
 )
-
-// patch route
-
-//destroy campground
 
 module.exports = router

@@ -30,7 +30,7 @@ module.exports.createCampground = async(req, res, next) => {
     }))
     campground.author = req.user._id
     await campground.save()
-        // console.log(campground)
+
     req.flash('success', 'Successfully made a new campground')
     res.redirect(`/campgrounds/${campground._id}`)
 }
@@ -39,7 +39,7 @@ module.exports.showCampground = async(req, res) => {
     const camp = await Campground.findById(req.params.id)
         .populate({ path: 'reviews', populate: { path: 'author' } })
         .populate('author')
-        // console.log(camp)
+
     if (!camp) {
         req.flash('error', 'Cannot find campground')
         res.redirect('/campgrounds')
@@ -69,27 +69,19 @@ module.exports.updateCampground = async(req, res) => {
     const campground = await Campground.findByIdAndUpdate(id, {
         ...req.body.campground,
     })
-    console.log(parseInt(campground.geometry.coordinates[0]))
-    console.log(Math.round(geoData.body.features[0].geometry.coordinates[0]))
-    console.log(campground.geometry === geoData.body.features[0].geometry)
+
     const imgs = req.files.map((f) => ({ url: f.path, filename: f.filename }))
     campground.images.push(...imgs)
 
     await campground.save()
-    console.log(req.body.deleteImages)
+
     if (req.body.deleteImages) {
         for (let file of req.body.deleteImages) {
-            // console.log(file)
-            // console.log(file.trim() === file)
             await cloudinary.uploader.destroy(file)
             await campground.updateOne({
                 $pull: { images: { filename: file.trim() } },
             })
         }
-        // console.log(campground)
-        // await campground.updateOne({
-        //     $pull: { images: { filename: { $in: req.body.deleteImages } } },
-        // })
     }
     req.flash('success', 'Successfully updated campground!')
     res.redirect(`/campgrounds/${campground._id}`)

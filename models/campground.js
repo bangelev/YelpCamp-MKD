@@ -26,6 +26,10 @@ const CampgroundSchema = new Schema({
                 required: true,
             },
         },
+        createdAt: {
+            type: Date,
+            default: Date.now(),
+        },
         description: String,
         location: String,
         author: {
@@ -52,5 +56,4 @@ CampgroundSchema.post('findOneAndDelete', async(doc) => {
     }
 })
 
-// directen export
 module.exports = mongoose.model('Campground', CampgroundSchema)

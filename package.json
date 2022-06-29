@@ -1,11 +1,15 @@
 {
+    "engines": {
+        "node": "16.14.x"
+    },
     "name": "moj-yelp-camp",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node app.js"
+        "start": "node app.js",
+        "seed": "node seeds/index.js"
     },
     "keywords": [],
     "author": "",

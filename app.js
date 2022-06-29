@@ -30,6 +30,7 @@ const reviewsRoutes = require('./routes/reviews')
 const MongoStore = require('connect-mongo')
 
 const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/yelp-camp'
+console.log(dbUrl)
     // const dbUrl = 'mongodb://localhost:27017/yelp-camp'
 
 mongoose.connect(dbUrl, {
@@ -40,19 +41,19 @@ mongoose.connect(dbUrl, {
 const db = mongoose.connection
 db.on('error', console.error.bind(console, 'connection error:'))
 db.once('open', function() {
-        console.log("We're connected do MONGODB!")
-    })
-    //mongoose deprication warning
+    console.log("We're connected do MONGODB!")
+})
+
 mongoose.set('useFindAndModify', false)
     // start servet
 const app = express()
 
 // ejs mate setup
 app.engine('ejs', engine)
-    // ejs setap
+    // ejs setup
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
-    // encoding za params setup
+
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 app.use(express.static(path.join(__dirname, 'public')))

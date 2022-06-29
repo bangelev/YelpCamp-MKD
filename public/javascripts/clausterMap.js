@@ -1,14 +1,15 @@
 // const campground = require('../../models/campground')
 
 mapboxgl.accessToken = mapToken
-    // 'pk.eyJ1IjoiYmFuZ2VsZXYiLCJhIjoiY2tzcHNrZGxvMDY0MjJxdGZ0eTV5dDhubCJ9.NBuG6DTDpyxIsUwDJfnFDQ'
+
 const map = new mapboxgl.Map({
-        container: 'cluster-map',
-        style: 'mapbox://styles/mapbox/light-v10',
-        center: [21.784795, 41.719951],
-        zoom: 6,
-    })
-    // console.log(campgrounds)
+    container: 'cluster-map',
+    style: 'mapbox://styles/mapbox/light-v10',
+    center: [-99.309545, 37.789632],
+    // center: [21.784795, 41.719951],
+    zoom: 4,
+})
+
 map.on('load', () => {
     // Add a new source from our GeoJSON data and
     // set the 'cluster' option to true. GL-JS will

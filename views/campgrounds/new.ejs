@@ -6,59 +6,34 @@
             <form action="/campgrounds" method="POST" novalidate class="needs-validation" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label class="form-label" for="title">Title</label>
-                    <input class="form-control" type="text" name="campground[title]" id="title" required>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
+                    <input class="form-control" type="text" name="campground[title]" id="title" required />
+                    <div class="valid-feedback">Looks good!</div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="location">Location</label>
-                    <input class="form-control" type="text" name="campground[location]" id="location" required>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
+                    <input class="form-control" type="text" name="campground[location]" id="location" required />
+                    <div class="valid-feedback">Looks good!</div>
                 </div>
-
-                <!-- <div class="input-group mb-3">
-                    <input type="file" class="form-control" id="inputGroupFile02">
-                    <label class="input-group-text" for="inputGroupFile02">Upload</label>
-                </div> -->
-
-                <!-- <div class="input-group mb-3">
-                    <input type="file" name="image" class="form-control" id="inputGroupFile02" multiple>
-                    <label class="input-group-text" for="inputGroupFile02">Upload</label>
-                </div> -->
-                <!-- <div class="mb-3">
-                    <label class="form-label" for="image">Image URL</label>
-                    <input class="form-control" type="text" name="campground[image]" id="location" required>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                </div> -->
 
                 <div class="mb-3">
                     <label class="form-label" for="price">Price</label>
                     <div class="input-group">
                         <span class="input-group-text">$</span>
-                        <input type="text" class="form-control" name="campground[price]" aria-label="price" placeholder="0" required>
+                        <input type="text" class="form-control" name="campground[price]" aria-label="price" placeholder="0" required />
                         <span class="input-group-text">.00</span>
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
+                        <div class="valid-feedback">Looks good!</div>
                     </div>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label" for="description">Description</label>
                     <textarea class="form-control" type="text" name="campground[description]" id="location" required></textarea>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
+                    <div class="valid-feedback">Looks good!</div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Choose Image(s)</label>
                     <div class="form-file custom-file">
-                        <input class="form-control custom-file-input" type="file" id="image" name="image" multiple onchange="previewMultiple(event)">
+                        <input class="form-control custom-file-input" type="file" id="image" name="image" multiple onchange="previewMultiple(event)" />
                         <label for="image" class="form-label custom-file-label"></label>
                     </div>
                     <div id="formFile"></div>
@@ -70,6 +45,5 @@
             <div class="mb-3">
                 <a href="/campgrounds">All campgrounds</a>
             </div>
-
         </div>
     </div>
