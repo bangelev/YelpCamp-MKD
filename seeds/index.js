@@ -3,10 +3,8 @@ const Campground = require('../models/campground')
 const cities = require('./cities')
 const { places, descriptors } = require('./seedHelpers')
 
-const dbUrl =
-    'mongodb+srv://bangelev83:E8YaGv6naLdg32tJ@cluster0.v6h2s.mongodb.net/myFirstDatabase?retryWrites=true&w=majority' ||
-    'mongodb://localhost:27017/yelp-camp'
-console.log(dbUrl)
+const dbUrl = process.env.DB_URL || process.env.DB_LOCAL
+
 mongoose.connect(dbUrl, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
